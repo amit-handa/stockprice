@@ -14,8 +14,8 @@ node app
 ```
 
 + load homepage
-  curl -i "http://localhost:8080"
+  curl -i "http://localhost:9950"
 + test server
-  node test/test.js
+	curl -i http://localhost:9950/v1/stockprice -X POST --data-urlencode 'Body=Symbol goog'
 
 For any issue, please email me at : amit.handa@gmail.com

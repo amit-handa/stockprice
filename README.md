@@ -1,9 +1,8 @@
 # Stock Price
 
-Server based on nodejs, koa(web framework), ws( Websocket)
-* Websocket based client/server communication
+Server based on nodejs, koa(web framework)
 
-## Live Example on *localhost:8080*
+## Live Example on *localhost:9950*
 
 ## Running
 ### server
@@ -18,7 +17,7 @@ node app.js
 
 #### Get
 ```bash
-curl -i http://localhost:9995/v1/stockprice -X POST --data-urlencode 'Body=Symbol goog'
+curl -i http://localhost:9950/v1/stockprice -X POST --data-urlencode 'Body=Symbol goog'
 ```
 
 ## Code layout
@@ -28,13 +27,12 @@ curl -i http://localhost:9995/v1/stockprice -X POST --data-urlencode 'Body=Symbo
 
 ### middleware config
 ./server/config/koa.js  <general middlewares>
-./server/config/koaws.js  <WebSocket specific code>
 
 ### controllers
 refer ./server/controllers
 
 ## Credits
-Server side simply utilizes generally accepted Koa middleware, WebSockets and Node.js best practices.
+Server side simply utilizes generally accepted Koa middleware and Node.js best practices.
 
 ## The Name
 The project name is Stock Price
