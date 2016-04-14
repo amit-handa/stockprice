@@ -14,6 +14,13 @@ node app.js
 
 ## Testing
 
+### Stock price
+
+#### Get
+```bash
+curl -i http://localhost:9995/v1/stockprice -X POST --data-urlencode 'Body=Symbol goog'
+```
+
 ## Code layout
 
 ### config
