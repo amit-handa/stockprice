@@ -14,21 +14,18 @@ process.on( 'uncaughtException', ( err ) => { l.error( err, "uncaught Exception"
 process.on( 'uncaughtRejection', ( err ) => { l.error( err, "uncaught Rejection" ); });
 
 var koa = require('koa'),
-	kwebsocket = require( 'koa-websocket'),
-	koaws = require( './server/config/koaws'),
 	koaConfig = require('./server/config/koa');
 
 /** * create server, configure the router middleware */
 co(function *() {
 	//yield spcommon.initDB();
 
-	var app = module.exports = kwebsocket( koa() );
+	var app = module.exports = koa();
 
 	app.init = co.wrap(function *() {
 		l.info("Initiating app");
 
 		koaConfig(app);
-		koaws( app );
 
 		l.info("Initiating web service at: ", config.app.port);
 		app.listen(config.app.port);
