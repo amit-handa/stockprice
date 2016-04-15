@@ -25,7 +25,7 @@ function processTickerResp( ticker, res ) {
 		default:
 			body += `${ticker},error!retry after a while`;
 			break;
-	};
+	}
 
 	return body;
 }
@@ -35,15 +35,15 @@ function processTickerResp( ticker, res ) {
 function * getStockprice(next) {
 	let config = spcommon.config;
 
+	let ticker;
 	try {
 		let body = yield parse( this );
 		//body = JSON.parse( body );
 		this.log.info( "get stock price ", body );
 		body = body.Body;
-		this.log.info( "get stock price ", body );
 		body = spcommon.utils.util.parseBody( body );
 
-		let ticker = body[0][body[0].length-1];
+		ticker = body[0][body[0].length-1];
 		let getstockprice = config.app.stockpriceApi.replace( "\{SYMBOL\}", ticker );
 		let res = yield request( {
 			url : getstockprice,

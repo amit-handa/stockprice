@@ -4,7 +4,7 @@
 let spcommon = require( 'sp-common'),
 	config = require('./server/config/config');
 
-/** * Initialize Utils, Libraries and Mongoose ODM */
+/** * Initialize Utils, Libraries */
 spcommon.init( config );
 
 let l = spcommon.logger.child( {'module': __filename.substring(__dirname.length+1, __filename.length-3)} ),
@@ -18,15 +18,10 @@ var koa = require('koa'),
 
 /** * create server, configure the router middleware */
 co(function *() {
-	//yield spcommon.initDB();
-
 	var app = module.exports = koa();
 
 	app.init = co.wrap(function *() {
-		l.info("Initiating app");
-
 		koaConfig(app);
-
 		l.info("Initiating web service at: ", config.app.port);
 		app.listen(config.app.port);
 	});

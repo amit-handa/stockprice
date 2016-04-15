@@ -14,7 +14,6 @@ exports.init = (config) => {
 	self.logger = lm.root;
 
 	self.initDir('/utils', 'utils');
-	//self.initDir('/models', 'models');
 };
 
 exports.initDir = ( dir, key ) => {
