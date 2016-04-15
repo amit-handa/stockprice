@@ -26,8 +26,7 @@ lm.init = ( config ) => {
 		serializers: {
 			err: b.stdSerializers.err,
 			req: b.stdSerializers.req,
-			res: b.stdSerializers.res,
-			user: function (u) { if (u) return u._id; }
+			res: b.stdSerializers.res
 		},
 		streams : [
 			{
